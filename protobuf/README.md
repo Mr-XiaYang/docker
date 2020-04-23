@@ -1,3 +1,3 @@
 # protobuf image
 
-Includes ‘protoc version’ command
+Includes `protoc` command
