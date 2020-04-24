@@ -6,7 +6,7 @@ VOLUME $PROJECT_DIR
 
 RUN apt-get update && apt-get install -y git build-essential autoconf libtool pkg-config cmake && apt-get clean
 
-ENV GRPC_VERSION v1.29.x
+ENV GRPC_VERSION v1.28.1
 RUN git clone -b ${GRPC_VERSION} https://github.com/grpc/grpc /usr/local/src/grpc \
     && cd /usr/local/src/grpc && git submodule update --init
 
