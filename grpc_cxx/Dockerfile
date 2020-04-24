@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM jiajianchang/protobuf:v3.11.4
 
 ENV PROJECT_DIR=/app
 WORKDIR $PROJECT_DIR
