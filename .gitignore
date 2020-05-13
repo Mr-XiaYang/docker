@@ -1,0 +1,4 @@
+.DS_Store
+
+mysql5/*
+!mysql5/*.sh
