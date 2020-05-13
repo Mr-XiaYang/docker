@@ -1,2 +1,2 @@
 #!/bin/bash
-docker exec -it orangehorse-mysql-db mysql $*
+docker exec -i orangehorse-mysql-db mysql $*
