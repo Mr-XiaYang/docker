@@ -2,6 +2,7 @@
 
 mysql5/*
 !mysql5/*.sh
+!mysql5/db/etc/*
 
 redis/*
 !redis/*.sh
