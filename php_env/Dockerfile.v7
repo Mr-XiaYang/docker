@@ -1,0 +1,33 @@
+FROM alpine:edge
+
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
+
+RUN apk add --no-cache python3 py3-setuptools supervisor nginx php7 php7-fpm composer 
+
+RUN apk add --no-cache \
+  php7-zip  php7-curl php7-ctype php7-gd \
+  php7-xml php7-xmlreader php7-xmlwriter \
+  php7-pdo php7-pdo_mysql php7-pdo_sqlite php7-mysqli php7-opcache \
+  php7-tokenizer php7-openssl php7-bcmath php7-mbstring
+
+RUN mkdir -p /var/log/supervisor /etc/nginx/sites_enabled
+
+COPY ./php/php.ini /etc/php7/conf.d/50-setting.ini
+COPY ./php/php-fpm.conf /etc/php7/php-fpm.conf
+
+COPY ./nginx/common/* /etc/nginx/common/
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+
+COPY ./supervisor/supervisor.conf /etc/supervisord.conf
+
+WORKDIR /project
+
+VOLUME /var/log/supervisor
+VOLUME /etc/nginx
+VOLUME /etc/php7
+VOLUME /project
+
+EXPOSE 80
+EXPOSE 443
+
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
