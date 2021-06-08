@@ -7,7 +7,7 @@ RUN apk add --no-cache php7 php7-common php7-fpm php7-pear composer
 RUN apk add --no-cache \
   php7-zip  php7-curl php7-ctype php7-gd \
   php7-xml php7-xmlreader php7-xmlwriter \
-  php7-pdo php7-pdo_mysql php7-pdo_sqlite php7-mysqli php7-opcache \
+  php7-pdo php7-pdo_mysql php7-pdo_sqlite php7-mysqli php7-pecl-mongodb php7-opcache \
   php7-tokenizer php7-openssl php7-bcmath php7-mbstring  php7-imap \
   php7-soap php7-mcrypt php7-pecl-oauth php7-session
 
