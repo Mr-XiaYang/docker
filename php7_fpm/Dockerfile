@@ -34,6 +34,6 @@ VOLUME /project
 
 EXPOSE 9000
 
-# USER ${USER}:${GROUP}
+USER ${USER}:${GROUP}
 ENTRYPOINT [ "fixuid" ]
 CMD ["/usr/sbin/php-fpm7", "-F"]
