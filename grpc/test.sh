@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build --pull --rm -f Dockerfile -t jiajianchang/grpc_tools:latest .
+docker build --pull -f Dockerfile -t jiajianchang/grpc_tools:latest .
