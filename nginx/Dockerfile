@@ -1,9 +1,9 @@
 FROM alpine:edge
 
-ARG USER=nginx
-ARG GROUP=nginx
+ARG USER=www-data
+ARG GROUP=www-data
 
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
+# RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
 
 RUN apk add --no-cache shadow openssl nginx
 
