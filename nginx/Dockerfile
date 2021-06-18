@@ -1,7 +1,7 @@
 FROM alpine:edge
 
-ARG USER=www-data
-ARG GROUP=www-data
+ARG USER=www
+ARG GROUP=www
 
 # RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
 
