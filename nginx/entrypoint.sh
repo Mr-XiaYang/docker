@@ -7,8 +7,8 @@ fi
 UID=${FIXUID:-1000};
 GID=${FIXGID:-1000};
 
-groupmod -o -g "$GID" nginx;
-usermod -o -u "$UID" nginx;
+groupmod -o -g "$GID" www-data;
+usermod -o -u "$UID" www-data;
 
 chown -R $UID:$GID /project;
 
