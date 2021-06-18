@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
-PID=${UID:-1000}
+
+UID=${UID:-1000}
 GID=${GID:-1000}
 
 groupmod -o -g "$GID" php

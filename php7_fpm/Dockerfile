@@ -1,8 +1,8 @@
 FROM alpine:edge
 
 # RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
-ARG USER=php
-ARG GROUP=php
+ARG USER=www-data
+ARG GROUP=www-data
 
 RUN apk add --no-cache shadow php7 php7-common php7-fpm php7-pear composer 
 
@@ -31,5 +31,7 @@ VOLUME /etc/php7
 VOLUME /project
 
 EXPOSE 9000
+
+STOPSIGNAL SIGQUIT
 
 ENTRYPOINT [ "/entrypoint.sh" ]
