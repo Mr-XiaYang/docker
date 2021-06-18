@@ -7,8 +7,8 @@ ARG GROUP=www-data
 
 RUN apk add --no-cache shadow openssl nginx
 
-# RUN addgroup -g 1000 ${GROUP} \
-#   && adduser -u 1000 -g ${USER} -G ${GROUP} -H -h /project -s /bin/sh -D ${USER}
+RUN addgroup -g 1000 ${GROUP} \
+  && adduser -u 1000 -g ${USER} -G ${GROUP} -H -h /project -s /bin/sh -D ${USER}
 
 COPY ./entrypoint.sh /entrypoint.sh
 COPY ./conf/nginx.conf /etc/nginx/nginx.conf
