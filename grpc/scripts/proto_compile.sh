@@ -15,7 +15,7 @@ help() {
   echo -e "
 compile -t <type> -i <input_dir> -o <out_dir>
 
-  -t      指定编译类型,目前支持: grpcjs、grpcts
+  -t      指定编译类型,目前支持: grpcjs、grpcts、java
   -i      指定输入目录
   -o      指定输出目录
 "
@@ -29,7 +29,7 @@ output_dir=
 while getopts "t:i:o:h" arg ;do
   case $arg in
     t)
-      if [ $OPTARG == "grpcjs" ] || [ $OPTARG == "grpcts" ]; then
+      if [ $OPTARG == "grpcjs" ] || [ $OPTARG == "grpcts" ] || [ $OPTARG == "java" ]; then
         compile_type=$OPTARG  
       fi
       ;;
@@ -109,6 +109,13 @@ for proto_file in $protoFiles; do
         --grpc_out=grpc_js:$out_dir \
         --js_out=import_style=commonjs,binary:$out_dir \
         --proto_path=$input_dir "$proto_file";
+      ;;
+    java)
+      protoc \
+        --plugin=protoc-gen-grpc-java=$(which protoc-gen-grpc-java) \
+        --grpc-java_out=lite:"$out_dir" \
+        --java_out=lite:"$out_dir" \
+        --proto_path=$input_dir "$proto_file"
       ;;
     esac
     current_index=$(($current_index + 1))
